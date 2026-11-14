@@ -1,0 +1,7 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+    <!-- 연석(빨강·흰색 줄무늬) 위의 소화전 -->
+    <path android:fillColor="#FFFFFFFF" android:pathData="M46,30h16v6h4v8h-4v20h-16v-20h-4v-8h4z"/>
+    <path android:fillColor="#FFD7262E" android:pathData="M24,70h15v8h-15z M54,70h15v8h-15z"/>
+    <path android:fillColor="#FFFFFFFF" android:pathData="M39,70h15v8h-15z M69,70h15v8h-15z"/>
+</vector>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 공식 샘플(pleos-sample-vehicle-app) 매니페스트에서 이 앱이 쓰는 것만 골랐다. -->
+    <!-- 기어: AAOS 표준 GEAR_SELECTION(CarPropertyManager) -->
+    <uses-permission android:name="android.car.permission.CAR_POWERTRAIN" />
+    <!-- 운전석 문, 운전석 착석, 무드등 읽기·쓰기 -->
+    <uses-permission android:name="pleos.car.permission.CAR_DOORS" />
+    <uses-permission android:name="pleos.car.permission.CAR_SEATS" />
+    <uses-permission android:name="pleos.car.permission.CAR_LIGHTS" />
+    <uses-permission android:name="pleos.car.permission.CONTROL_CAR_LIGHTS" />
+
+    <!-- 위치: Pleos FusedLocation 바인딩(aar 에도 선언됨) + Android 위치 권한 -->
+    <uses-permission android:name="ai.pleos.playground.service.location.fused.FUSED_LOCATION_BINDING" />
+    <!-- 에뮬레이터 실행 로그로 확인: registerFusedLocationCallback 은 이 권한(dangerous, 런타임 요청)을 요구 -->
+    <uses-permission android:name="pleos.car.permission.FUSED_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- 에뮬레이터 실행 로그로 확인: Pleos TTS initialize 는 이 권한(normal)을 요구 -->
+    <uses-permission android:name="pleos.car.permission.TTS_SERVICE" />
+
+    <uses-feature android:name="android.hardware.type.automotive" android:required="true" />
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+    </queries>
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.RedCurb">
+        <!-- CarPropertyManager(android.car) 런타임 라이브러리. 없는 기기에서도 설치는 되게 required=false -->
+        <uses-library android:name="android.car" android:required="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|density|uiMode"
+            android:theme="@style/Theme.RedCurb">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
